@@ -1,0 +1,689 @@
+// =====================
+// // COLOR PALLETES
+// =====================
+
+// Dark Mode
+$background: #272346;
+$headline: #fffffe;
+$paragraph: #e5dff5;
+$bg-gradient: linear-gradient(to right, #141127, #1d064b, #210d3d, #372447);
+$button-text: #272346;
+$button-border: 1px solid #473b96;
+$button-hover: -2px 3px 16px 4px rgba(55, 20, 211, 0.2);
+$card-shadow: 0 4px 8px 0 rgba(55, 20, 211, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$box-border: 1px solid #473b96;
+$icon-shadow: 3px 2px 3px rgba(241, 110, 165, 0.151);
+$text-shadow: 2px 2px 5px rgba(58, 32, 206, 0.5);
+$btn-up: rgba(182, 54, 103, 0.5);
+$headings-shadow: 1.5px 0.9px 0.9px rgba(255, 255, 255, .1);
+
+// Light mode
+$light-background: #dcdeee;
+$light-bg-gradient: linear-gradient(to right, #ece9ec, #ebe4e6, #e7e1eb, #f1eeef);
+$light-button-text: #fffffe;
+$light-button-bg: #9e3155;
+$light-button-hover: -2px 3px 16px 4px rgba(211, 20, 109, 0.2);
+$light-headline: #272346;
+$light-paragraph: #1a1a3f;
+$light-card-shadow: 0 4px 8px 0 rgba(211, 20, 93, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$light-box-border: 1px solid #dabec8e1;
+$icon: rgba(206, 151, 194, 0.863);
+
+// ===================
+// // ANIMATIONS
+// ===================
+
+// background gradient animation
+@keyframes change {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
+
+// cursor animation dark mode
+@keyframes blink {
+	0% {
+		background-color: $headline;
+	}
+	49% {
+		background-color: $headline;
+	}
+	50% {
+		background-color: transparent;
+	}
+	99% {
+		background-color: transparent;
+	}
+	100% {
+		background-color: $headline;
+	}
+}
+
+// cursor animation light mode
+@keyframes blinkLight {
+	0% {
+		background-color: $light-headline;
+	}
+	49% {
+		background-color: $light-headline;
+	}
+	50% {
+		background-color: transparent;
+	}
+	99% {
+		background-color: transparent;
+	}
+	100% {
+		background-color: $light-headline;
+	}
+}
+
+// arrow animation
+@keyframes arrow {
+	0% {
+		top: 0%;
+	}
+
+	50% {
+		top: 20%;
+	}
+
+	100% {
+		top: 0%;
+	}
+}
+
+// =====================
+// // TYPOGRAPHY
+// =====================
+
+// Fonts
+$headings: "Poppins", sans-serif;
+$body: "Montserrat", sans-serif;
+
+// Headings
+h1 {
+	font-size: 3.7rem;
+	font-weight: 400;
+	color: $headline;
+	text-align: center;
+	text-shadow: $headings-shadow;
+}
+
+h2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	max-width: 70%;
+	margin: 0 auto;
+	padding-bottom: 3em;
+	&:before,
+	&:after {
+		content: '';
+		border-top: $box-border;
+		margin: 0 30px 0 0;
+		flex: 1 0 20px;
+	}
+	&:after {
+		margin: 0 0 0 30px;
+	}
+}
+
+.back-subtitle {
+	font-weight: 600;
+}
+
+// =====================
+// // GENERAL STYLES
+// =====================
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+body {
+	font-family: $body;
+	color: $paragraph;
+	background: $bg-gradient;
+	background-size: 400% 400%;
+	position: relative;
+	animation: change 10s ease-in-out infinite;
+}
+// Main
+main {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+section {
+	height: 100%;
+	padding: 5em 0;
+}
+
+// ======================
+// // BUTTONS STYLES
+// ======================
+
+// Toggle Switch Theme Button
+.theme-toggle-btn {
+	margin: 0.5em 0 0 0.5em;
+	.checkbox {
+		opacity: 0;
+		position: absolute;
+	}
+	.label {
+		background-color: #232125;
+		border-radius: 50px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 5px;
+		position: relative;
+		height: 26px;
+		width: 50px;
+		transform: scale(1.2);
+		.fa-moon {
+			color: #f0da77;
+		}
+		.fa-sun {
+			color: #f3d112;
+		}
+		.ball {
+			background-color: $paragraph;
+			border-radius: 50%;
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			height: 22px;
+			width: 22px;
+			transform: translateX(0px);
+			transition: transform 0.2s linear;
+		}
+	}
+	.checkbox:checked + .label .ball {
+		transform: translateX(24px);
+	}
+}
+
+// Back To Top button
+.top-btn {
+	font-size: 3rem;
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	border: none;
+	background-color: transparent;
+	color: $btn-up;
+	cursor: pointer;
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		color: $light-button-bg;
+	}
+}
+
+// All other buttons
+.btn {
+	background: transparent;
+	color: $light-button-text;
+	border: $button-border;
+	&:hover {
+		color: $headline;
+		box-shadow: $button-hover;
+	}
+}
+
+// Lists
+ul {
+	list-style: none;
+}
+// Links
+a {
+	text-decoration: none;
+	color: $light-button-text;
+	&:hover {
+		text-decoration: none;
+		color: $headline;
+	}
+}
+// Icons
+i {
+	color: $light-button-bg;
+}
+
+.btn i {
+	color: $light-button-text;
+}
+// =====================
+// // LIGHT MODE STYLES
+// =====================
+.light-mode {
+	background: $light-bg-gradient;
+	background-size: 400% 400%;
+	position: relative;
+	animation: change 10s ease-in-out infinite;
+	color: $light-paragraph;
+	// Headings
+	h1,
+	h2,
+	h3 {
+		color: $light-headline;
+	}
+	// Buttons
+	.btn {
+		background: $light-button-bg;
+		border: none;
+		&:hover {
+			box-shadow: $light-button-hover;
+		}
+	}
+	// Header Section
+	header {
+		.navbar-dark .navbar-toggler-icon {
+			background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+		}
+		.light-nav {
+			.light-item .light-link {
+				color: $light-headline;
+			}
+			.navbar-nav .light-item {
+				.light-link {
+					&:hover {
+						text-shadow: none;
+					}
+					&:after {
+						background: $light-button-bg;
+					}
+				}
+			}
+		}
+		// Sub-heading animation
+		div .light-sub-heading {
+			color: $light-headline;
+			.cursor {
+				background-color: $light-button-bg;
+				animation: blinkLight 1s infinite;
+			}
+		}
+	}
+	// Projects section cards
+	div .card-container .light-card {
+		color: $light-paragraph;
+		box-shadow: $light-card-shadow;
+		border: $light-box-border;
+	}
+	// Contact Section
+	.contact {
+		.contact-me {
+			color: $light-headline;
+		}
+	}
+}
+
+// ===================
+// HEADER SECTION
+// ===================
+header {
+	// Navbar styles
+	user-select: none;
+	.navbar {
+		background-color: transparent;
+		.nav-item .nav-link {
+			color: $light-background;
+			text-shadow: $headings-shadow;
+		}
+		.navbar-nav .nav-item {
+			position: relative;
+			.nav-link {
+				text-transform: uppercase;
+				line-height: 1rem;
+				font-weight: 700;
+				font-size: 0.85rem;
+				position: relative;
+				margin: 1em;
+				&:hover {
+					text-shadow: $text-shadow;
+				}
+				&:after {
+					background: none repeat scroll 0 0 transparent;
+					bottom: 0;
+					content: "";
+					display: block;
+					height: 2px;
+					left: 50%;
+					position: absolute;
+					background: #473b96;
+					transition: width 0.3s ease 0s, left 0.3s ease 0s;
+					width: 0;
+				}
+				&:hover:after {
+					width: 100%;
+					left: 0;
+				}
+			}
+		}
+	}
+	// End of Navbar Styles
+	// Landing page styles
+	.landing {
+		font-family: $headings;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0 2em;
+		// Start arrow down button
+		.start-btn {
+			color: $light-button-bg;
+			position: relative;
+			animation: arrow 1s infinite;
+			font-size: 2.1rem;
+			&:hover {
+				color: $light-button-bg;
+				text-shadow: $icon-shadow;
+				transform: scale(1.02);
+				transition: 0.2s;
+			}
+		}
+		// Subheading - typing effect
+		.sub-heading {
+			font-weight: 500;
+			font-size: 2rem;
+			color: $light-button-text;
+			overflow: hidden;
+			padding-bottom: 1em;
+			text-align: center;
+			.typed-text {
+				color: $light-button-bg;
+				font-size: 2rem;
+			}
+			.cursor {
+				display: inline-block;
+				background-color: $light-button-bg;
+				margin-left: 0.1rem;
+				width: 3px;
+				animation: blink 1s infinite;
+			}
+			.cursor.typing {
+				animation: none;
+			}
+		}
+	}
+}
+// ===================
+// ABOUT SECTION
+// ===================
+.about {
+	height: 100%;
+	padding: 0;
+	.container {
+		padding: 3em 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80%;
+		.cv-btn-mobile {
+			display: none;
+		}
+		.bio {
+			align-self: center;
+		}
+		.photo-btn {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			img {
+				object-fit: cover;
+				border-radius: 50%;
+				height: 230px;
+				width: 230px;
+				margin-bottom: 2em;
+			}
+		}
+	}
+}
+
+// ====================
+// SERVICES AND SKILLS SECTION
+// ====================
+.services {
+	text-align: center;
+	div {
+		padding: 1em;
+	}
+	h3 {
+		font-size: 1.6rem;
+		padding: 2.5em;
+	}
+	.services-icons {
+		font-size: 1.1rem;
+		font-weight: 500;
+		i {
+			font-size: 5rem;
+		}
+	}
+	.tech-icons {
+		font-weight: 500;
+		img {
+			width: 64px;
+			height: 64px;
+		}
+		i {
+			font-size: 4rem;
+		}
+	}
+}
+
+// ====================
+// // PROJECTS SECTION
+// ====================
+.projects {
+	div {
+		text-align: center;
+		.col-md-6 {
+			padding: 2em 0;
+			.btn {
+				margin: 1em;
+			}
+		}
+	}
+	// cards
+	.card-container {
+		display: grid;
+		perspective: 900px;
+		.card {
+			margin: 15px 15px;
+			color: $paragraph;
+			background-color: transparent;
+			border: $box-border;
+			box-shadow: $card-shadow;
+			.card-block {
+				padding: 2em;
+			}
+		}
+		.card-flip {
+			display: grid;
+			grid-template: 1fr / 1fr;
+			grid-template-areas: "frontAndBack";
+			transform-style: preserve-3d;
+			transition: all 0.7s ease;
+			div {
+				backface-visibility: hidden;
+				transform-style: preserve-3d;
+			}
+			.front {
+				grid-area: frontAndBack;
+			}
+			.back {
+				grid-area: frontAndBack;
+				transform: rotateY(-180deg);
+				.card-header {
+					font-size: 1.5rem;
+				}
+				.card-block {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					height: 100%;
+				}
+			}
+		}
+		&:hover .card-flip {
+			transform: rotateY(180deg);
+			cursor: pointer;
+		}
+	}
+	.card {
+		min-height: 400px;
+	}
+
+	// buttons
+	.card-buttons i {
+		padding-top: 0.5em;
+		margin: 0.2em;
+		font-size: 1.7rem;
+		&:hover {
+			transform: scale(1.02);
+			transition: 0.3s;
+			text-shadow: $icon-shadow;
+		}
+	}
+	.projects-btn {
+		span {
+			padding-bottom: 1em;
+		}
+		i {
+			font-size: 1rem;
+		}
+	}
+}
+// ==================
+// CONTACT SECTION
+// ==================
+.contact {
+	.contact-me {
+		color: $paragraph;
+		font-weight: 600;
+		&:hover {
+			color: $light-button-bg;
+		}
+	}
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		.row {
+			width: 70%;
+			padding: 2.5em 0 3em 0;
+			i {
+				font-size: 3.5rem;
+				margin-top: 0.3em;
+			}
+			.under-text {
+				margin: 0.5em 0;
+				font-weight: 600;
+			}
+		}
+	}
+}
+.social {
+	padding-top: 1em;
+	h5 {
+		font-size: 1.4rem;
+	}
+	i {
+		margin: 0.3em;
+		font-size: 1.35rem;
+		&:hover {
+			transform: scale(1.07);
+			transition: 0.5s;
+			text-shadow: $icon-shadow;
+		}
+	}
+}
+
+// ======================
+// FOOTER SECTION
+// ======================
+footer {
+	font-size: 1rem;
+	height: 100%;
+	background-color: $background;
+	color: $light-background;
+	text-align: center;
+	padding: 0.5em;
+	.footer {
+		text-align: center;
+		margin: 0.5em;
+		.heart {
+			font-size: 0.8rem;
+			color: #db4a86;
+		}
+		.copyright {
+			font-size: 0.6rem;
+		}
+	}
+}
+
+// =======================
+// MEDIA QUERIES
+// =======================
+
+// About Section
+
+// @media screen and (max-width: 700px) {
+// 	.about {
+// 		.container {
+// 			padding: 2em 0;
+// 			display: flex;
+// 			justify-content: center;
+// 			align-items: center;
+// 			width: 80%;
+// 			.row {
+// 				flex-direction: column-reverse;
+// 				.bio {
+// 					align-self: center;
+// 				}
+// 				.photo-btn {
+// 					display: flex;
+// 					flex-direction: column;
+// 					justify-content: center;
+// 					align-items: center;
+// 					.cv-btn {
+// 						display: none;
+// 					}
+// 					.cv-btn-mobile {
+// 						display: block;
+// 					}
+// 					img {
+// 						object-fit: cover;
+// 						border-radius: 50%;
+// 						height: 230px;
+// 						width: 230px;
+// 						margin-bottom: 2em;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }

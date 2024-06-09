@@ -14,7 +14,7 @@ My personal portfolio website built in order to showcase my current skills and p
 ### Technologies and tools used:
 
 - HTML
-- SASS/SCSS
+- CSS
 - Bootstrap
 - JavaScript
 - AOS

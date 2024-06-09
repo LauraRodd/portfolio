@@ -2,7 +2,7 @@
 
 My personal portfolio website built in order to showcase my current skills and projects.
 
-## View [Live]([https://laurarodd.github.io/portfolio/])
+## View [Live](https://laurarodd.github.io/portfolio/)
 
 ### Features:
 

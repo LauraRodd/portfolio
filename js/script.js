@@ -2,7 +2,7 @@
 
 const typedTextSpan = document.querySelector('.typed-text');
 const cursorSpan = document.querySelector('.cursor');
-const textArray = [ 'a Front-End Developer', 'a Problem Solver', 'Creative', 'a Web Developer', 'a Fast Learner' ];
+const textArray = [ 'a User Experience Designer', 'a Data Enthusiast', 'a Marketing Specialist', 'a Creative Problem Solver', 'a Fast Learner' ];
 const typingDelay = 120;
 const erasingDelay = 100;
 const newTextDelay = 1000; // Delay between current and next text
@@ -73,3 +73,4 @@ function topBtn() {
 	document.body.scrollTop = 0; // For Safari
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
